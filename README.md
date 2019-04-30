@@ -1,4 +1,4 @@
-# Redux persist idb storage
+# Redux Persist adapter for IndexedDB storage
 
 Storage adapter to use [IndexedDB](https://developer.mozilla.org/en-US/docs/Glossary/IndexedDB) via [idb](https://www.npmjs.com/package/idb) v3 with [redux-persist](https://github.com/rt2zz/redux-persist) ripped from [idb docs > Examples](https://github.com/jakearchibald/idb/tree/v3.0.0#keyval-store) section
 

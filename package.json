@@ -1,7 +1,7 @@
 {
   "name": "@piotr-cz/redux-persist-idb-storage",
   "version": "1.0.0",
-  "description": "Redux persist adapter for idb storage",
+  "description": "Redux Persist adapter for IndexedDB storage",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "repository": {
