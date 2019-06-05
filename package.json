@@ -22,7 +22,7 @@
     "prepare": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "depedencies": {
+  "dependencies": {
     "idb": "^3.0.0"
   },
   "devDependencies": {
@@ -34,8 +34,5 @@
   },
   "peerDependencies": {
     "redux-persist": ">=3.5.0"
-  },
-  "dependencies": {
-    "idb": "^3.0.0"
   }
 }
