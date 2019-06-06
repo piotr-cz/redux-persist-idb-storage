@@ -10,18 +10,18 @@ export default {
     // See https://github.com/oligot/rollup-plugin-nodent/issues/3#issuecomment-321800029
     nodent({
       promises: true,
-      noRuntime: true
+      noRuntime: true,
     }),
-    buble({objectAssign: 'Object.assign'})
+    buble({objectAssign: 'Object.assign'}),
   ],
   output: [
     {
       format: 'cjs',
-      file: 'dist/index.cjs.js'
+      file: 'dist/index.cjs.js',
     },
     {
       format: 'esm',
-      file: 'dist/index.esm.js'
-    }
-  ]
+      file: 'dist/index.esm.js',
+    },
+  ],
 }

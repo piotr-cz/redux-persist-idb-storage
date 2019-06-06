@@ -2,6 +2,7 @@
 
 Storage adapter to use [IndexedDB](https://developer.mozilla.org/en-US/docs/Glossary/IndexedDB) via [idb](https://www.npmjs.com/package/idb) v3 with [redux-persist](https://github.com/rt2zz/redux-persist) ripped from [idb docs > Examples](https://github.com/jakearchibald/idb/tree/v3.0.0#keyval-store) section
 
+
 ## Installation
 
 ```sh
@@ -13,9 +14,11 @@ or
 yarn add @piotr-cz/redux-persist-idb-storage
 ```
 
+
 ## Requirements
 
 - [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) support/ polyfill
+
 
 ## Setup
 
@@ -39,14 +42,16 @@ const persistConfig = {
 // ...
 ```
 
+
 ### Options
 
 See [idb API](https://github.com/jakearchibald/idb/tree/v3.0.2#api)
 
-- _{string}_ name - Defaults to `keyval-store`
-- _{string}_ storeName - Defaults to `keyval`
-- _{number}_ version - Defaults to `1`
-- _{function}_ upgradeCallback - Defaults to `upgradeDb => upgradeDb.createObjectStore(options.storeName)`
+- _{string}_ **name** - Defaults to `keyval-store`
+- _{string}_ **storeName** - Defaults to `keyval`
+- _{number}_ **version** - Defaults to `1`
+- _{function}_ **upgradeCallback** - Defaults to `upgradeDb => upgradeDb.createObjectStore(options.storeName)`
+
 
 ## Notes
 
