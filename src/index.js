@@ -19,13 +19,18 @@ export default function createIdbStorage(options = {}) {
     /** Database version */
     version: 1,
     /** Upgrade callback. Useful when for example switching storeName */
-    upgradeCallback: upgradeDb => upgradeDb.createObjectStore(options.storeName),
+    upgradeCallback: upgradeDb =>
+      upgradeDb.createObjectStore(options.storeName),
     /** Custom options */
-    ...options,
+    ...options
   }
 
   /** @var {Promise} */
-  const dbPromise = openDb(options.name, options.version, options.upgradeCallback)
+  const dbPromise = openDb(
+    options.name,
+    options.version,
+    options.upgradeCallback
+  )
 
   return {
     /**
@@ -37,8 +42,7 @@ export default function createIdbStorage(options = {}) {
       const db = await dbPromise
       const tx = db.transaction(options.storeName)
 
-      return tx.objectStore(options.storeName)
-        .get(key)
+      return tx.objectStore(options.storeName).get(key)
     },
 
     /**
@@ -51,8 +55,7 @@ export default function createIdbStorage(options = {}) {
       const db = await dbPromise
       const tx = db.transaction(options.storeName, 'readwrite')
 
-      tx.objectStore(options.storeName)
-        .put(item, key)
+      tx.objectStore(options.storeName).put(item, key)
 
       return tx.complete
     },
@@ -66,8 +69,7 @@ export default function createIdbStorage(options = {}) {
       const db = await dbPromise
       const tx = db.transaction(options.storeName, 'readwrite')
 
-      tx.objectStore(options.storeName)
-        .delete(key)
+      tx.objectStore(options.storeName).delete(key)
 
       return tx.complete
     },
@@ -80,8 +82,7 @@ export default function createIdbStorage(options = {}) {
       const db = await dbPromise
       const tx = db.transaction(options.storeName)
 
-      return tx.objectStore(options.storeName)
-        .getAllKeys()
+      return tx.objectStore(options.storeName).getAllKeys()
     },
 
     /**
@@ -92,8 +93,7 @@ export default function createIdbStorage(options = {}) {
       const db = await dbPromise
       const tx = db.transaction(options.storeName, 'readwrite')
 
-      return tx.objectStore(options.storeName)
-        .getAll()
+      return tx.objectStore(options.storeName).getAll()
     },
 
     /**
@@ -104,10 +104,9 @@ export default function createIdbStorage(options = {}) {
       const db = await dbPromise
       const tx = db.transaction(options.storeName, 'readwrite')
 
-      tx.objectStore(options.storeName)
-        .clear()
+      tx.objectStore(options.storeName).clear()
 
       return tx.complete
-    },
+    }
   }
 }
