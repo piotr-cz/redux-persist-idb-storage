@@ -36,7 +36,7 @@ import createIdbStorage from '@piotr-cz/redux-persist-idb-storage/src'
 const persistConfig = {
   key: 'root',
   storage: createIdbStorage({name: 'myApp', storeName: 'keyval'}),
-  serialize: false, // Data serialization is not required and helps allows DevTools to inspect storage value
+  serialize: false, // Data serialization is not required and disabling it allows you to inspect storage value in DevTools
 }
 
 // ...
