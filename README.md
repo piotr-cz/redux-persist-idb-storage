@@ -10,7 +10,7 @@ npm install --save @piotr-cz/redux-persist-idb-storage
 ```
 or
 
-```
+```sh
 yarn add @piotr-cz/redux-persist-idb-storage
 ```
 
