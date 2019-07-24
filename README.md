@@ -1,6 +1,6 @@
 # Redux Persist adapter for IndexedDB storage
 
-Storage adapter to use [IndexedDB](https://developer.mozilla.org/en-US/docs/Glossary/IndexedDB) via [idb](https://www.npmjs.com/package/idb) v3 with [redux-persist](https://github.com/rt2zz/redux-persist) ripped from [idb docs > Examples](https://github.com/jakearchibald/idb/tree/v3.0.0#keyval-store) section
+Storage adapter to use [IndexedDB](https://developer.mozilla.org/en-US/docs/Glossary/IndexedDB) via [idb](https://www.npmjs.com/package/idb) v3 with [redux-persist](https://github.com/rt2zz/redux-persist) ripped from [idb v3 docs > Examples](https://github.com/jakearchibald/idb/tree/v3.0.0#keyval-store) section
 
 
 ## Installation
@@ -56,3 +56,4 @@ See [idb API](https://github.com/jakearchibald/idb/tree/v3.0.2#api)
 ## Notes
 
 - idb dependency is locked to version ^3.0.0 as [4+ uses](https://github.com/jakearchibald/idb/blob/v4.0.3/changes.md#new-stuff) [proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) which are not supported in older browsers
+- credits go to [idb](https://github.com/jakearchibald/idb) authors
