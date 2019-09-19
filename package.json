@@ -2,8 +2,9 @@
   "name": "@piotr-cz/redux-persist-idb-storage",
   "version": "1.0.1",
   "description": "Redux Persist adapter for IndexedDB storage",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
+  "source": "src/index.js",
+  "main": "dist/redux-persist-idb-storage.js",
+  "module": "dist/redux-persist-idb-storage.es.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/piotr-cz/redux-persist-idb-storage.git"
@@ -18,7 +19,7 @@
     "idb"
   ],
   "scripts": {
-    "build": "rollup --config rollup.config.js",
+    "build": "microbundle --format=es,cjs --target=web",
     "npmpublish": "npm publish --access=public",
     "prepare": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -27,11 +28,7 @@
     "idb": "^3.0.0"
   },
   "devDependencies": {
-    "buble": "^0.19.8",
-    "rollup": "^1.21.3",
-    "rollup-plugin-buble": "^0.19.8",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-nodent": "^0.2.2"
+    "microbundle": "^0.11.0"
   },
   "peerDependencies": {
     "redux-persist": ">=3.5.0"
