@@ -1,6 +1,6 @@
 {
   "name": "@piotr-cz/redux-persist-idb-storage",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Redux Persist adapter for IndexedDB storage",
   "source": "src/index.js",
   "main": "dist/redux-persist-idb-storage.js",
