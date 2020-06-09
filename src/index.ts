@@ -7,11 +7,18 @@
  * - removeItem(key)
  * - getAllKeys() required for Redux Persit v4
  */
-import { openDb } from 'idb'
+import { openDb, UpgradeDB, ObjectStore } from 'idb'
 
-export default function createIdbStorage(options = {}) {
+export default function createIdbStorage(
+  definedOptions: {
+    name?: string
+    storeName?: string
+    version?: number
+    upgradeCallback?: (upgradeDB: UpgradeDB) => ObjectStore<any, any>
+  } = {}
+) {
   /** @var {Object} */
-  options = {
+  const options = {
     /** Database name */
     name: 'keyval-store',
     /** Store name */
@@ -19,10 +26,10 @@ export default function createIdbStorage(options = {}) {
     /** Database version */
     version: 1,
     /** Upgrade callback. Useful when for example switching storeName */
-    upgradeCallback: upgradeDb =>
+    upgradeCallback: (upgradeDb: UpgradeDB) =>
       upgradeDb.createObjectStore(options.storeName),
     /** Custom options */
-    ...options
+    ...definedOptions,
   }
 
   /** @var {Promise} */
@@ -38,7 +45,7 @@ export default function createIdbStorage(options = {}) {
      * @param {string} key
      * @return {Promise}
      */
-    async getItem(key) {
+    async getItem(key: string): Promise<any> {
       const db = await dbPromise
       const tx = db.transaction(options.storeName)
 
@@ -48,10 +55,21 @@ export default function createIdbStorage(options = {}) {
     /**
      * Set
      * @param {string} key
-     * @param {*} item
+     * @param {string | number | IDBKeyRange | Date | ArrayBufferView | ArrayBuffer | IDBArrayKey | undefined} item
      * @return {Promise}
      */
-    async setItem(key, item) {
+    async setItem(
+      key: string,
+      item:
+        | string
+        | number
+        | IDBKeyRange
+        | Date
+        | ArrayBufferView
+        | ArrayBuffer
+        | IDBArrayKey
+        | undefined
+    ): Promise<any> {
       const db = await dbPromise
       const tx = db.transaction(options.storeName, 'readwrite')
 
@@ -65,7 +83,7 @@ export default function createIdbStorage(options = {}) {
      * @param {string} key
      * @return {Promise}
      */
-    async removeItem(key) {
+    async removeItem(key: string): Promise<any> {
       const db = await dbPromise
       const tx = db.transaction(options.storeName, 'readwrite')
 
@@ -78,7 +96,7 @@ export default function createIdbStorage(options = {}) {
      * Get all keys
      * @return {Promise}
      */
-    async getAllKeys() {
+    async getAllKeys(): Promise<any> {
       const db = await dbPromise
       const tx = db.transaction(options.storeName)
 
@@ -89,7 +107,7 @@ export default function createIdbStorage(options = {}) {
      * Get all data
      * @return {Promise}
      */
-    async getAll() {
+    async getAll(): Promise<any> {
       const db = await dbPromise
       const tx = db.transaction(options.storeName, 'readwrite')
 
@@ -100,13 +118,13 @@ export default function createIdbStorage(options = {}) {
      * Clear storage
      * @return {Promise}
      */
-    async clear() {
+    async clear(): Promise<any> {
       const db = await dbPromise
       const tx = db.transaction(options.storeName, 'readwrite')
 
       tx.objectStore(options.storeName).clear()
 
       return tx.complete
-    }
+    },
   }
 }
