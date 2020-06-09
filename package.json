@@ -20,7 +20,7 @@
     "idb"
   ],
   "scripts": {
-    "build": "microbundle --format=es,cjs --target=web",
+    "build": "microbundle --format=es,cjs --target=web --compress=false",
     "npmpublish": "npm publish --access=public",
     "prepare": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
