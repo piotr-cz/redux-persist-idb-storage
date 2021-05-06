@@ -109,7 +109,7 @@ export default function createIdbStorage(
      */
     async getAll(): Promise<any> {
       const db = await dbPromise
-      const tx = db.transaction(options.storeName, 'readwrite')
+      const tx = db.transaction(options.storeName)
 
       return tx.objectStore(options.storeName).getAll()
     },
