@@ -42,6 +42,28 @@ const persistConfig = {
 // ...
 ```
 
+### Server-Side Rendering
+
+When using Server-Side Rendering (SSR), indexedDB won't be available in the environment.
+
+In this case you may use feature detection with a fallback to use default redux-persist storage (which resolves to [noop](https://github.com/rt2zz/redux-persist/blob/d7efde9115a0bd2d6a0309ac6fb1c018bf06dc30/src/storage/getStorage.js#L42) functions):
+
+```js
+// configureStore.js
+
+// Redux Persist storage
+import defaultStorage from 'redux-persist/lib/storage'
+
+// IndexedDB storage
+import createIdbStorage from '@piotr-cz/redux-persist-idb-storage/src'
+
+const persistConfig = {
+  key: 'root',
+  storage: globalThis.indexedDB ? createIdbStorage({name: 'myApp', storeName: 'keyval'}) : defaultStorage,
+  serialize: false, 
+}
+```
+
 
 ### Options
 
