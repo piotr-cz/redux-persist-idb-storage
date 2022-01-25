@@ -29,7 +29,7 @@
     "idb": "^3.0.0"
   },
   "devDependencies": {
-    "microbundle": "^0.13.3"
+    "microbundle": "^0.14.2"
   },
   "peerDependencies": {
     "redux-persist": ">=3.5.0"
