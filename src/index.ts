@@ -14,7 +14,7 @@ export default function createIdbStorage(
     name?: string
     storeName?: string
     version?: number
-    upgradeCallback?: (upgradeDB: UpgradeDB) => ObjectStore<any, any>
+    upgradeCallback?: (upgradeDB: UpgradeDB) => ObjectStore<any, string>
   } = {}
 ) {
   /** @var {Object} */
@@ -55,21 +55,13 @@ export default function createIdbStorage(
     /**
      * Set
      * @param {string} key
-     * @param {string | number | IDBKeyRange | Date | ArrayBufferView | ArrayBuffer | IDBArrayKey | undefined} item
+     * @param {any} item
      * @return {Promise}
      */
     async setItem(
       key: string,
-      item:
-        | string
-        | number
-        | IDBKeyRange
-        | Date
-        | ArrayBufferView
-        | ArrayBuffer
-        | IDBArrayKey
-        | undefined
-    ): Promise<any> {
+      item: any
+    ): Promise<void> {
       const db = await dbPromise
       const tx = db.transaction(options.storeName, 'readwrite')
 
@@ -83,7 +75,7 @@ export default function createIdbStorage(
      * @param {string} key
      * @return {Promise}
      */
-    async removeItem(key: string): Promise<any> {
+    async removeItem(key: string): Promise<void> {
       const db = await dbPromise
       const tx = db.transaction(options.storeName, 'readwrite')
 
@@ -96,7 +88,7 @@ export default function createIdbStorage(
      * Get all keys
      * @return {Promise}
      */
-    async getAllKeys(): Promise<any> {
+    async getAllKeys(): Promise<string[]> {
       const db = await dbPromise
       const tx = db.transaction(options.storeName)
 
@@ -107,7 +99,7 @@ export default function createIdbStorage(
      * Get all data
      * @return {Promise}
      */
-    async getAll(): Promise<any> {
+    async getAll(): Promise<any[]> {
       const db = await dbPromise
       const tx = db.transaction(options.storeName)
 
@@ -118,7 +110,7 @@ export default function createIdbStorage(
      * Clear storage
      * @return {Promise}
      */
-    async clear(): Promise<any> {
+    async clear(): Promise<void> {
       const db = await dbPromise
       const tx = db.transaction(options.storeName, 'readwrite')
 
