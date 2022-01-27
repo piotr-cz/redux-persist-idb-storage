@@ -72,10 +72,10 @@ const persistConfig = {
 
 See [idb API](https://github.com/jakearchibald/idb/tree/v3.0.2#api)
 
-- _{string}_ **name** - Defaults to `'keyval-store'`
-- _{string}_ **storeName** - Defaults to `'keyval'`
-- _{number}_ **version** - Defaults to `1`
-- _{function}_ **upgradeCallback** - Defaults to `upgradeDb => upgradeDb.createObjectStore(options.storeName)`
+- `name`: (optional) - IndexedDB Database name, Defaults to `'keyval-store'`
+- `storeName`: (optional) - IndexedDB Store name, Defaults to `'keyval'`
+- `version`: (optional) - Schema version, Defaults to `1`
+- `upgradeCallback`: (optional) - Defaults to `upgradeDb => upgradeDb.createObjectStore(options.storeName)`
 
 
 ## Notes
