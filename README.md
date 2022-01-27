@@ -5,10 +5,13 @@ Storage adapter to use [IndexedDB](https://developer.mozilla.org/en-US/docs/Glos
 
 ## Installation
 
+Using npm:
+
 ```sh
 npm install --save @piotr-cz/redux-persist-idb-storage
 ```
-or
+
+or Yarn:
 
 ```sh
 yarn add @piotr-cz/redux-persist-idb-storage
