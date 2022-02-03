@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.3] - 2022-02-03
+### Fixed
+- Types
+
 ## [1.1.2] - 2021-05-06
 ### Fixed
 - Use readonly transaction mode in getAll method
@@ -32,7 +36,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/piotr-cz/redux-persist-idb-storage/compare/v1.1.2...HEAD
+[Unreleased]: https://github.com/piotr-cz/redux-persist-idb-storage/compare/v1.1.3...HEAD
+[1.1.3]: https://github.com/piotr-cz/redux-persist-idb-storage/compare/v1.1.2...v1.1.3
 [1.1.2]: https://github.com/piotr-cz/redux-persist-idb-storage/compare/v1.1.1...v1.1.2
 [1.1.1]: https://github.com/piotr-cz/redux-persist-idb-storage/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/piotr-cz/redux-persist-idb-storage/compare/v1.0.2...v1.1.0
