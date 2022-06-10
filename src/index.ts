@@ -7,7 +7,8 @@
  * - removeItem(key)
  * - getAllKeys() required for Redux Persit v4
  */
-import { openDb, UpgradeDB, ObjectStore } from 'idb'
+import type { UpgradeDB, ObjectStore } from 'idb'
+import { openDb } from 'idb'
 
 /** Options */
 interface IOptions {
