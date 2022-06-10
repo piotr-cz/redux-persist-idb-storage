@@ -30,11 +30,7 @@ Import the storage and include it in `persistConfig` when creating Redux store:
 ```js
 // configureStore.js
 
-// Using CommonJS modules
 import createIdbStorage from '@piotr-cz/redux-persist-idb-storage'
-
-// Or using ES6 modules
-import createIdbStorage from '@piotr-cz/redux-persist-idb-storage/src'
 
 const persistConfig = {
   key: 'root',
