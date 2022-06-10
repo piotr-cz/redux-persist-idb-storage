@@ -2,9 +2,14 @@
   "name": "@piotr-cz/redux-persist-idb-storage",
   "version": "1.1.3",
   "description": "Redux Persist adapter for IndexedDB storage",
+  "type": "module",
   "source": "src/index.ts",
-  "main": "dist/redux-persist-idb-storage.js",
-  "module": "dist/redux-persist-idb-storage.es.js",
+  "main": "dist/redux-persist-idb-storage.cjs",
+  "module": "dist/redux-persist-idb-storage.module.mjs",
+  "exports": {
+    "require": "./dist/redux-persist-idb-storage.cjs",
+    "default": "./dist/redux-persist-idb-storage.modern.js"
+  },
   "typings": "dist/index.d.ts",
   "repository": {
     "type": "git",
@@ -20,7 +25,7 @@
     "idb"
   ],
   "scripts": {
-    "build": "microbundle --format es,cjs --target web --compress false",
+    "build": "microbundle --format modern,es,cjs --target web --compress false",
     "npmpublish": "npm publish --access public",
     "prepare": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
