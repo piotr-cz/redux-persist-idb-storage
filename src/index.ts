@@ -21,14 +21,14 @@ interface IOptions {
   upgradeCallback: (upgradeDB: UpgradeDB) => ObjectStore<any, string>,
 }
 
-export default function createIdbStorage(definedOptions: Partial<IOptions> = {}) {
+export default function createIdbStorage(customOptions: Partial<IOptions> = {}) {
   const options: IOptions = {
     name: 'keyval-store',
     storeName: 'keyval',
     version: 1,
     upgradeCallback: (upgradeDb: UpgradeDB) =>
       upgradeDb.createObjectStore(options.storeName),
-    ...definedOptions,
+    ...customOptions,
   }
 
   const dbPromise = openDb(
