@@ -9,30 +9,28 @@
  */
 import { openDb, UpgradeDB, ObjectStore } from 'idb'
 
-export default function createIdbStorage(
-  definedOptions: {
-    name?: string
-    storeName?: string
-    version?: number
-    upgradeCallback?: (upgradeDB: UpgradeDB) => ObjectStore<any, string>
-  } = {}
-) {
-  /** @var {Object} */
-  const options = {
-    /** Database name */
+/** Options */
+interface IOptions {
+  /** Database name */
+  name: string,
+  /** Store name */
+  storeName: string,
+  /** Database version */
+  version: number,
+  /** Upgrade callback. Useful when for example switching storeName */
+  upgradeCallback: (upgradeDB: UpgradeDB) => ObjectStore<any, string>,
+}
+
+export default function createIdbStorage(definedOptions: Partial<IOptions> = {}) {
+  const options: IOptions = {
     name: 'keyval-store',
-    /** Store name */
     storeName: 'keyval',
-    /** Database version */
     version: 1,
-    /** Upgrade callback. Useful when for example switching storeName */
     upgradeCallback: (upgradeDb: UpgradeDB) =>
       upgradeDb.createObjectStore(options.storeName),
-    /** Custom options */
     ...definedOptions,
   }
 
-  /** @var {Promise} */
   const dbPromise = openDb(
     options.name,
     options.version,
@@ -42,8 +40,6 @@ export default function createIdbStorage(
   return {
     /**
      * Get
-     * @param {string} key
-     * @return {Promise}
      */
     async getItem(key: string): Promise<any> {
       const db = await dbPromise
@@ -54,9 +50,6 @@ export default function createIdbStorage(
 
     /**
      * Set
-     * @param {string} key
-     * @param {any} item
-     * @return {Promise}
      */
     async setItem(
       key: string,
@@ -72,8 +65,6 @@ export default function createIdbStorage(
 
     /**
      * Remove
-     * @param {string} key
-     * @return {Promise}
      */
     async removeItem(key: string): Promise<void> {
       const db = await dbPromise
@@ -86,7 +77,6 @@ export default function createIdbStorage(
 
     /**
      * Get all keys
-     * @return {Promise}
      */
     async getAllKeys(): Promise<string[]> {
       const db = await dbPromise
@@ -97,7 +87,6 @@ export default function createIdbStorage(
 
     /**
      * Get all data
-     * @return {Promise}
      */
     async getAll(): Promise<any[]> {
       const db = await dbPromise
@@ -108,7 +97,6 @@ export default function createIdbStorage(
 
     /**
      * Clear storage
-     * @return {Promise}
      */
     async clear(): Promise<void> {
       const db = await dbPromise
