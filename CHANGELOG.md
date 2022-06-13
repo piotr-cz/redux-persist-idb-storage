@@ -9,7 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - JSDoc notation to TypeScript interface
 
 ### Fixed
-- Importing package instructions (https://github.com/piotr-cz/redux-persist-idb-storage/issues/14)
+- Importing package instructions [#14](https://github.com/piotr-cz/redux-persist-idb-storage/issues/14)
+- Document options required for redux-persist@6.0 [#16](https://github.com/piotr-cz/redux-persist-idb-storage/issues/16)
 
 ## [1.1.3] - 2022-02-03
 ### Fixed
